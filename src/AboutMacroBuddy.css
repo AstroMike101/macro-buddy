@@ -12,28 +12,31 @@
     flex-wrap: wrap;
 }
 
-.image-container img {
+.image {
+    margin: 10px;
+    position: relative;
+}
+
+.image img {
     max-width: 100%;
     height: auto;
-    margin: 10px;
 }
 
 .text-under-image {
     text-align: center;
+    position: relative;
+    bottom: 8em;
+    font-size:10px;
+    left: 70%;
+    transform: translateX(-50%);
+        font-family: 'Roboto Mono', monospace;
 }
 
 .believe-section {
     margin-top: 20px;
+            font-family: 'Roboto Mono', monospace;
 }
 
-.foodimg1{
-    height:100px;
-    width: 100px;
-}
-.foodimg2 {
-    height: 100px;
-    width: 100px;
-}
 
 h2 {
     font-size: 2em;

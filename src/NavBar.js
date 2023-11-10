@@ -1,4 +1,3 @@
-// src/NavBar.js
 
 import React from 'react';
 import logoImg from './imgs/logo.jpg'; // Adjust the path as needed
