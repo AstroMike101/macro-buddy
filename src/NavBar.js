@@ -1,6 +1,6 @@
 
 import React from 'react';
-import logoImg from './imgs/logo.jpg'; // Adjust the path as needed
+import logoImg from './imgs/logo.jpg';
 import './NavBar.css';
 
 const NavBar = () => {
