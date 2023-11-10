@@ -1,0 +1,45 @@
+/* src/AboutMacroBuddy.css */
+
+.about-macro-buddy {
+    text-align: center;
+    margin: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+.text-under-image {
+    text-align: center;
+}
+
+.believe-section {
+    margin-top: 20px;
+}
+
+.foodimg1{
+    height:100px;
+    width: 100px;
+}
+.foodimg2 {
+    height: 100px;
+    width: 100px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+p {
+    line-height: 1.5;
+}
