@@ -2,7 +2,7 @@
 
 import React from 'react';
 import './WelcomeSection.css'
-
+import { Link } from 'react-router-dom';
 const WelcomeSection = () => {
   return (
     <div className="welcome-section">
@@ -10,7 +10,9 @@ const WelcomeSection = () => {
       <p className="subheading">The ultimate macro tracking companion</p>
       <div className="buttons">
         <button>Start a Diary</button>
-        <button>Log a Meal</button>
+        <Link to="/log-meal">
+          <button>Log a Meal</button>
+        </Link>
       </div>
     </div>
   );
