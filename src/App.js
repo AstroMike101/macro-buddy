@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import WelcomeSection from './WelcomeSection';
 import AboutMacroBuddy from './AboutMacroBuddy';
 import LogAMeal from './LogAMeal';
+import Diary from './Diary';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
+
           <Route path="/" element={<WelcomeSection />} />
+          <Route path="/diary" element={<Diary />} />
           <Route path="/log-meal" element={<LogAMeal />} />
           {/* Add more routes as needed */}
         </Routes>

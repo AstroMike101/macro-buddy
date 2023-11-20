@@ -45,6 +45,10 @@ span {
     border-color: #000000
 }
 
+.login:hover { 
+    background-color: #8de0a9;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -64,4 +68,7 @@ background-color: #a3b18a;
 border-radius: 1em;
 padding: .5em 1em;
 }
+
+
+
 /* ... other styles ... */
