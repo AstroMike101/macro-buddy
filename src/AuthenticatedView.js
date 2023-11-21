@@ -3,6 +3,7 @@ import { Route, Switch, Link, useHistory } from 'react-router-dom';
 import AddItem from './AddItem';
 import Item from './Item';
 import dummyData from '../dummyData';
+import './AuthenticatedView.css';
 
 const AuthenticatedView = ({ isLoggedIn }) => {
   const [newItem, setNewItem] = useState({ title: '', image: '' });
