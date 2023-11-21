@@ -5,18 +5,19 @@ import WelcomeSection from './WelcomeSection';
 import AboutMacroBuddy from './AboutMacroBuddy';
 import LogAMeal from './LogAMeal';
 import Diary from './Diary';
-
+import AuthenView from './AuthenView'
 function App() {
   return (
     <Router>
       <div className="App">
         <NavBar />
         <Routes>
-
           <Route path="/" element={<WelcomeSection />} />
-          <Route path="/diary" element={<Diary />} />
+          <Route path="/about" element={<AboutMacroBuddy />} />
           <Route path="/log-meal" element={<LogAMeal />} />
+          <Route path="/diary" element={<Diary/>} />
           {/* Add more routes as needed */}
+          <Route path = "/auth" element = {<AuthenView/>}/>
         </Routes>
         <AboutMacroBuddy/>
       </div>

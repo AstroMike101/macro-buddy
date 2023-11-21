@@ -9,7 +9,9 @@ const WelcomeSection = () => {
       <h1>Welcome to MacroBuddy</h1>
       <p className="subheading">The ultimate macro tracking companion</p>
       <div className="buttons">
-        <button>Start a Diary</button>
+      <Link to="/Diary">
+          <button>Start a Diary</button>
+        </Link>
         <Link to="/log-meal">
           <button>Log a Meal</button>
         </Link>
