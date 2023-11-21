@@ -5,6 +5,8 @@ import WelcomeSection from './WelcomeSection';
 import AboutMacroBuddy from './AboutMacroBuddy';
 import LogAMeal from './LogAMeal';
 import Diary from './Diary';
+import AuthenticatedView from './AuthenticatedView';
+
 
 function App() {
   return (
