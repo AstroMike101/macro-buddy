@@ -18,6 +18,7 @@ function App() {
           <Route path="/" element={<WelcomeSection />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/log-meal" element={<LogAMeal />} />
+          <Route path="/authenticated-view" element={<AuthenticatedView />} />
           {/* Add more routes as needed */}
         </Routes>
         <AboutMacroBuddy/>
