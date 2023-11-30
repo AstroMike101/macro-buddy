@@ -1,4 +1,3 @@
-// Diary.js
 
 import React from 'react';
 import DummyItems from './DummyItems';

@@ -11,7 +11,7 @@ const WelcomeSection = () => {
       <div className="buttons">
         <button>Start a Diary</button>
         <Link to="/log-meal">
-          <button>Log a Meal</button>
+          <button class="button2">Log a Meal</button>
         </Link>
       </div>
     </div>

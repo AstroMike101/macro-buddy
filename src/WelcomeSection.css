@@ -17,8 +17,10 @@ h1 {
     bottom: 1.2em;
 }
 
+
+
 .buttons button {
-    margin: 0 10px;
+    margin: .5em;
     padding: 10px 20px;
     font-size: 1em;
     background-color: #a3b18a;
@@ -27,6 +29,12 @@ h1 {
     cursor: pointer;
     border-radius: 5px;
     font-family: 'Oswald', sans-serif;
+}
+
+
+
+.button2 { 
+    margin-top: 2em;
 }
 
 .buttons button:hover {
