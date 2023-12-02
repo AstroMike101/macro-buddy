@@ -1,5 +1,3 @@
-// DummyItems.js
-
 const dummyItems = [
     {
         id: 1,

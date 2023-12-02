@@ -6,6 +6,9 @@ import AboutMacroBuddy from './AboutMacroBuddy';
 import LogAMeal from './LogAMeal';
 import Diary from './Diary';
 import AuthenView from './AuthenView'
+import Register from './Register'
+import Login from './Login'
+
 function App() {
   return (
     <Router>
@@ -16,10 +19,13 @@ function App() {
           <Route path="/about" element={<AboutMacroBuddy />} />
           <Route path="/log-meal" element={<LogAMeal />} />
           <Route path="/diary" element={<Diary/>} />
-          {/* Add more routes as needed */}
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path = "/auth" element = {<AuthenView/>}/>
+
         </Routes>
         <AboutMacroBuddy/>
+        {/* <Register/> */}
       </div>
     </Router>
   );

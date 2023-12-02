@@ -18,7 +18,7 @@ const NavBar = () => {
         <a href="/">Progress</a>
         <a href="/">Macro Community</a>
         <a href="/">Profile</a>
-        <Link to = '/auth'>Login/Signup</Link>
+        <Link to = '/register'>Login/Signup</Link>
       </div>
     </div>
   );
