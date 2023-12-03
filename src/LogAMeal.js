@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { Link, useNavigate } from 'react-router-dom';
+
 import './LogAMeal.css';
 
 const AddItem = () => {
@@ -35,23 +38,35 @@ const AddItem = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('New Item:', newItem);
-        setNewItem({
-            itemName: '',
-            itemDescription: '',
-            servingType: 'Default Serving',
-            servingUnit: {
-                grams: false,
-                milliliters: false,
+      
+        try {
+          // Get the user's authentication token from localStorage
+          const token = localStorage.getItem('token');
+      
+          const response = await fetch('http://localhost:5001/api/meals', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`,  // Include the token in the Authorization header
             },
-            protein: '',
-            carb: '',
-            fats: '',
-            calories: '',
-        });
-    };
+            body: JSON.stringify(newItem),
+          });
+      
+          if (response.ok) {
+            // Handle success
+            console.log('Meal added successfully');
+          } else {
+            // Handle errors
+            console.error('Failed to add meal:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error adding meal:', error);
+        }
+      };
+      
+
 
     return (
         <div>
@@ -68,9 +83,9 @@ const AddItem = () => {
                 </label>
                 <br />
                 <label>
-                    Item Description:
+                    Item Image:
                     <input
-                        type="text"
+                        type="url"
                         name="itemDescription"
                         value={newItem.itemDescription}
                         onChange={handleInputChange}

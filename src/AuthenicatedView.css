@@ -83,3 +83,9 @@ button:hover {
     background-color: #8de0a9;
     font-family: 'Roboto Mono', monospace;
 }
+
+h1{
+    text-align: center;
+    margin: 50px 20px;
+    font-family: 'Oswald', sans-serif;
+}
