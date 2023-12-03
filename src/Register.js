@@ -1,39 +1,68 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Link } from 'react-router-dom'; 
+import { Link, useNavigate } from 'react-router-dom';
+import './Register.css';
+import Login from './Login';
 
+const Register = ({ onLogin }) => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    goal: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-import './Register.css'; 
-import Login from './Login.js'
-
-const Register = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        password: '',
-        goal: '',
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
     });
+  };
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission (e.g., send data to server)
-        console.log('Form submitted:', formData);
-    };
+    try {
+      // Send the registration data to the backend
+      const response = await fetch('http://localhost:5001/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    return (
-        <div className="register-container">
-            <h2 className="register-title">Register</h2>
-            <form onSubmit={handleSubmit} className="register-form">
-                <label className="register-label">
+      if (response.ok) {
+        console.log('User registered successfully');
+        // Optionally, log the user in after registration
+        if (onLogin) {
+          onLogin();
+        }
+        // Redirect the user to a protected route or display a success message
+        navigate('/auth');
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || 'Registration failed');
+      }
+    } catch (error) {
+      console.error('Error registering user:', error);
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="register-container">
+      <h2 className="register-title">Register</h2>
+      {error && <p className="register-error">{error}</p>}
+      <form onSubmit={handleSubmit} className="register-form">
+      <label className="register-label">
                     First Name:
                     <input
                         type="text"
@@ -94,15 +123,16 @@ const Register = () => {
                         <option value="other">Other</option>
                     </select>
                 </label>
-                <button type="submit" className="register-button">
-                    Register
-                </button>
-            </form>
-            <p className="login-link">
-                Already a user? <Link to="/login">Login here</Link>
-            </p>
-        </div>
-    );
+
+        <button type="submit" className="register-button" disabled={loading}>
+          {loading ? 'Registering...' : 'Register'}
+        </button>
+      </form>
+      <p className="login-link">
+        Already a user? <Link to="/login">Login here</Link>
+      </p>
+    </div>
+  );
 };
 
 export default Register;
