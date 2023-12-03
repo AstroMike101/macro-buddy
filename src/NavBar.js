@@ -14,11 +14,9 @@ const NavBar = () => {
       </div>
       <div className="nav-links">
         {/* <a href="/">Diary</a> */}
+        <a href="/">Home</a>
         <Link to="/diary">Diary</Link>
-        <a href="/">Progress</a>
-        <a href="/">Macro Community</a>
-        <a href="/">Profile</a>
-        <Link to = '/register'>Login/Signup</Link>
+          <Link to = '/register'>Login/Signup</Link>
       </div>
     </div>
   );
