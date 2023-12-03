@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
-
 import './LogAMeal.css';
 
 const AddItem = () => {
+    const navigate = useNavigate();
+
     const [newItem, setNewItem] = useState({
         itemName: '',
         itemDescription: '',
@@ -40,33 +40,34 @@ const AddItem = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-      
-        try {
-          // Get the user's authentication token from localStorage
-          const token = localStorage.getItem('token');
-      
-          const response = await fetch('http://localhost:5001/api/meals', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,  // Include the token in the Authorization header
-            },
-            body: JSON.stringify(newItem),
-          });
-      
-          if (response.ok) {
-            // Handle success
-            console.log('Meal added successfully');
-          } else {
-            // Handle errors
-            console.error('Failed to add meal:', response.statusText);
-          }
-        } catch (error) {
-          console.error('Error adding meal:', error);
-        }
-      };
-      
 
+        try {
+            // Get the user's authentication token from localStorage
+            const token = localStorage.getItem('token');
+
+            const response = await fetch('http://localhost:5001/api/meals', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,  // Include the token in the Authorization header
+                },
+                body: JSON.stringify(newItem),
+            });
+
+            if (response.ok) {
+                // Handle success
+                console.log('Meal added successfully');
+
+                // Redirect to the /diary page after successful submission
+                navigate('/diary');
+            } else {
+                // Handle errors
+                console.error('Failed to add meal:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error adding meal:', error);
+        }
+    };
 
     return (
         <div>
@@ -189,6 +190,7 @@ const AddItem = () => {
                     />
                 </label>
                 <br />
+
                 <button type="submit">Add Item</button>
             </form>
         </div>

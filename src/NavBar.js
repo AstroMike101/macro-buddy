@@ -14,11 +14,8 @@ const NavBar = () => {
   }, []);
 
   const handleLogout = () => {
-    // Remove the token from localStorage
     localStorage.removeItem('token');
-    // Update the state to reflect the logged-out status
     setIsLoggedIn(false);
-    // Navigate to the home page or another appropriate page
     navigate('/');
   };
 
@@ -30,10 +27,10 @@ const NavBar = () => {
       </div>
       <div className="nav-links">
         {/* <a href="/">Diary</a> */}
+        <a href="/">Home</a>
         <Link to="/diary">Diary</Link>
-        <a href="/">Progress</a>
-        <a href="/">Macro Community</a>
-        <a href="/">Profile</a>
+      
+  
         <Link to = '/register'>Login/Signup</Link>
       </div>
     </div>
