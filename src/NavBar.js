@@ -29,9 +29,11 @@ const NavBar = () => {
         {/* <a href="/">Diary</a> */}
         <a href="/">Home</a>
         <Link to="/diary">Diary</Link>
-      
-  
-        <Link to = '/register'>Login/Signup</Link>
+        {isLoggedIn ? (
+          <Link to="/logout" onClick={handleLogout}>Sign Out</Link>
+        ) : (
+          <Link to="/register">Login/Signup</Link>
+        )}
       </div>
     </div>
   );

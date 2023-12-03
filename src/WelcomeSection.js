@@ -17,7 +17,7 @@ const WelcomeSection = () => {
   return (
     <div className="welcome-section">
       <h1>Welcome to MacroBuddy</h1>
-      <p className="subheading">The ultimate macro tracking companion</p>
+      <p className="subheading">The Ultimate Macro Tracking Companion</p>
       {isLoggedIn ? (
         // Authenticated user content
         <div>
@@ -51,3 +51,4 @@ const WelcomeSection = () => {
 };
 
 export default WelcomeSection;
+
