@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
-import Login from './Login';
 
 const Register = ({ onLogin }) => {
   const [formData, setFormData] = useState({
@@ -39,12 +38,10 @@ const Register = ({ onLogin }) => {
 
       if (response.ok) {
         console.log('User registered successfully');
-        // Optionally, log the user in after registration
         if (onLogin) {
           onLogin();
         }
-        // Redirect the user to a protected route or display a success message
-        navigate('/auth');
+        navigate('/login');
       } else {
         const errorData = await response.json();
         setError(errorData.message || 'Registration failed');
@@ -62,67 +59,66 @@ const Register = ({ onLogin }) => {
       <h2 className="register-title">Register</h2>
       {error && <p className="register-error">{error}</p>}
       <form onSubmit={handleSubmit} className="register-form">
-      <label className="register-label">
-                    First Name:
-                    <input
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        className="register-input"
-                        required
-                    />
-                </label>
-                <label className="register-label">
-                    Last Name:
-                    <input
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        className="register-input"
-                        required
-                    />
-                </label>
-                
-                <label className="register-label">
-                    Email:
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="register-input"
-                        required
-                    />
-                </label>
-                <label className="register-label">
-                    Password:
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        className="register-input"
-                        required
-                    />
-                </label>
-                <label className="register-label">
-                    What is your goal for using MacroBuddy?
-                    <select
-                        name="goal"
-                        value={formData.goal}
-                        onChange={handleChange}
-                        className="register-input"
-                        required
-                    >
-                        <option value="">Select your goal</option>
-                        <option value="lose_weight">Lose Weight</option>
-                        <option value="build_muscle">Build Muscle</option>
-                        <option value="maintain_health">Maintain Health</option>
-                        <option value="other">Other</option>
-                    </select>
-                </label>
+        <label className="register-label">
+          First Name:
+          <input
+            type="text"
+            name="firstName"
+            value={formData.firstName}
+            onChange={handleChange}
+            className="register-input"
+            required
+          />
+        </label>
+        <label className="register-label">
+          Last Name:
+          <input
+            type="text"
+            name="lastName"
+            value={formData.lastName}
+            onChange={handleChange}
+            className="register-input"
+            required
+          />
+        </label>
+        <label className="register-label">
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="register-input"
+            required
+          />
+        </label>
+        <label className="register-label">
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="register-input"
+            required
+          />
+        </label>
+        <label className="register-label">
+          What is your goal for using MacroBuddy?
+          <select
+            name="goal"
+            value={formData.goal}
+            onChange={handleChange}
+            className="register-input"
+            required
+          >
+            <option value="">Select your goal</option>
+            <option value="lose_weight">Lose Weight</option>
+            <option value="build_muscle">Build Muscle</option>
+            <option value="maintain_health">Maintain Health</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
 
         <button type="submit" className="register-button" disabled={loading}>
           {loading ? 'Registering...' : 'Register'}

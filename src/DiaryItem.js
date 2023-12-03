@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+
+import './DiaryItem.css'
+
 const DiaryItem = ({ item, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState(item ? { ...item } : {});
@@ -47,6 +50,8 @@ const DiaryItem = ({ item, onEdit, onDelete }) => {
   };
 
   return (
+    <div className="diary-container">
+
     <div className="diary-item">
       {isEditing ? (
         <div>
@@ -77,6 +82,8 @@ const DiaryItem = ({ item, onEdit, onDelete }) => {
         </div>
       )}
     </div>
+    </div>
+
   );
 };
 

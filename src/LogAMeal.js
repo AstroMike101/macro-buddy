@@ -42,7 +42,6 @@ const AddItem = () => {
         e.preventDefault();
 
         try {
-            // Get the user's authentication token from localStorage
             const token = localStorage.getItem('token');
 
             const response = await fetch('http://localhost:5001/api/meals', {
@@ -55,13 +54,10 @@ const AddItem = () => {
             });
 
             if (response.ok) {
-                // Handle success
                 console.log('Meal added successfully');
 
-                // Redirect to the /diary page after successful submission
                 navigate('/diary');
             } else {
-                // Handle errors
                 console.error('Failed to add meal:', response.statusText);
             }
         } catch (error) {
